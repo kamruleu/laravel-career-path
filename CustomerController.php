@@ -2,17 +2,19 @@
 
 class CustomerController {
 
+    private array $customers;
+
+    public function __construct() {
+        $this->customers = $this->load();
+    }
+
     public function customerLogin($email, $password){
-        //printf($email.$password);
+        //print_r($this->customers);die;
         if (file_exists("data/customerRegisters.txt")) {
             $data = unserialize(file_get_contents("data/customerRegisters.txt"));
         }
-        // if (!is_array($data)) {
-        //     return [];
-        // }
-        // print_r($data);die;
+
         foreach ($data as $key=>$customer) {
-            //print_r($customer);
             if ($customer['email'] === $email && $customer['password'] === $password) {
                 return true;
             }
@@ -23,18 +25,27 @@ class CustomerController {
 
     public function customerRegister($name, $email, $password) {
 
-        $data[] = [
+        $newCustomers = [
             "name" => $name,
             "email" => $email,
             "password" => $password,
 
         ];
-        printf("Customer register successfully.\n");
-        file_put_contents("data/customerRegisters.txt", serialize($data));
+        array_push($this->customers, $newCustomers);
+        printf("Customer register successfully.\n\n");
+        file_put_contents("data/customerRegisters.txt", serialize($this->customers));
         
     }
 
-    public function FunctionName() {
-        
+    public function load() {
+        if (file_exists("data/customerRegisters.txt")) {
+            $data = unserialize(file_get_contents("data/customerRegisters.txt"));
+        }
+
+        if (!is_array($data)) {
+            return [];
+        }
+
+        return $data;
     }
 }

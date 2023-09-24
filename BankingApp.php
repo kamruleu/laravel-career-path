@@ -6,7 +6,6 @@ class BankingApp {
     
     private const LOGIN = 1;
     private const REGISTER = 2;
-    private $IS_LOGIN = false;
 
     private array $options = [
         self::LOGIN => 'Login',
@@ -22,7 +21,7 @@ class BankingApp {
     public function run(){
         while(true){
 
-            printf("Select from the following menu:\n\n");
+            printf("Select from the following menu:\n");
             
             foreach ($this->options as $option => $label) {
                 printf("%d. %s\n", $option, $label);
@@ -36,8 +35,7 @@ class BankingApp {
                     $password = trim(readline("Enter Password: "));
                     $check = $this->customerController->customerLogin($email, $password);
                     if($check){
-                        $this->IS_LOGIN = true;
-                        $this->transactionController->run();
+                        $this->transactionController->run($email);
                     }else{
                         printf("Sorry! Invalid credentials\n");
                     }
@@ -49,7 +47,7 @@ class BankingApp {
                     $this->customerController->customerRegister($name, $email, $password);
                     break;
                 default:
-                    # code...
+                    printf("Sorry! Invalid credentials\n");
                     break;
             }
         }
