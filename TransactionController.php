@@ -35,15 +35,42 @@ class TransactionController {
             switch ($choice) {
                 case self::DEPOSIT:
                     $amount = (float)trim(readline("Enter deposit amount: "));
+                    if($amount <= 0){
+                        printf("\nSorry! Amount would be greater than 0!\n\n");
+                        break;
+                    }
                     $this->saveTransactions($amount, $this->options[$choice], $email);
                     break;
                 case self::WITHDRAW:
                     $amount = "-".(float)trim(readline("Enter withdraw amount: "));
+                    if($amount <= 0){
+                        printf("\nSorry! Amount would be greater than 0!\n\n");
+                        break;
+                    }
+                    $checkBalance = $this->checkBalance($amount, $email);
+                    if(!$checkBalance){
+                        printf("\nSorry! You don't have sufficient balance!\n\n");
+                        break;
+                    }
                     $this->saveTransactions($amount, $this->options[$choice], $email);
                     break;
                 case self::TRANSFER:
                     $amount = (float)trim(readline("Enter transfer amount: "));
                     $toCustomer = trim(readline("To customer email: "));
+                    if($amount <= 0){
+                        printf("\nSorry! Amount would be greater than 0!\n\n");
+                        break;
+                    }
+                    $checkCustomer = $this->checkCustomer($toCustomer);
+                    if(!$checkCustomer){
+                        printf("\nSorry! Invalid customer email!\n\n");
+                        break;
+                    }
+                    $checkBalance = $this->checkBalance($amount, $email);
+                    if(!$checkBalance){
+                        printf("\nSorry! You don't have sufficient balance!\n\n");
+                        break;
+                    }
                     $this->saveTransactions("-".$amount, $this->options[$choice], $email);
                     $this->saveTransactions($amount, "Received money", $toCustomer);
                     break;
@@ -54,7 +81,7 @@ class TransactionController {
                     $this->viewBalance($email);
                     break;
                 default:
-                    printf("Sorry! Your selected option invalid\n\n");
+                    printf("\nSorry! Your selected option invalid\n\n");
                     break;
             }
         }
@@ -69,7 +96,7 @@ class TransactionController {
 
         ];
         array_push($this->transactions, $newTransaction);
-        printf("Transaction save successfully.\n\n");
+        printf("\nTransaction save successfully.\n\n");
         file_put_contents("data/transactions.txt", serialize($this->transactions));
     }
 
@@ -100,9 +127,44 @@ class TransactionController {
             }
         }
         printf("---------------------------------\n");
-        printf("Current Balance: \t\t".$total."\n");
+        printf("Current Balance: \t".$total."\n");
 
         printf("---------------------------------\n\n");
+    }
+
+    public function checkBalance($amount, $email)
+    {
+        $total = 0;
+        foreach ($this->transactions as $key => $value) {
+            if($value['email'] === $email){
+                $total += $value['amount'];
+            }
+        }
+
+        if($total >= abs($amount)){
+            return true;
+        }
+
+        return false;
+    }
+
+    public function checkCustomer($email)
+    {
+        if (file_exists("data/customerRegisters.txt")) {
+            $data = unserialize(file_get_contents("data/customerRegisters.txt"));
+        }
+
+        if (!is_array($data)) {
+            return false;
+        }
+
+        foreach ($data as $key => $value) {
+            if($value['email'] === $email){
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public function load() {
