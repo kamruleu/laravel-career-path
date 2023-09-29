@@ -1,7 +1,14 @@
 <?php
 
-class TransactionController {
+namespace App\Controller;
+use App\Model;
+use App\FileStorage;
+use App\RegistrationType;
+
+class CustomerTransaction implements Model {
+    private FileStorage $storage;
     private array $transactions;
+    private array $registers;
     private const DEPOSIT = 1;
     private const WITHDRAW = 2;
     private const TRANSFER = 3;
@@ -17,7 +24,14 @@ class TransactionController {
     ];
 
     public function __construct() {
-        $this->transactions = $this->load();
+        $this->storage = new FileStorage();
+        $this->transactions = $this->storage->load($this->getModelName());
+        $this->registers = $this->storage->load(CustomerTransaction::getModelName());
+    }
+
+    public static function getModelName(): string
+    {
+        return 'transactions';
     }
 
     public function run($email) {
@@ -150,32 +164,12 @@ class TransactionController {
 
     public function checkCustomer($email)
     {
-        if (file_exists("data/customerRegisters.txt")) {
-            $data = unserialize(file_get_contents("data/customerRegisters.txt"));
-        }
-
-        if (!is_array($data)) {
-            return false;
-        }
-
-        foreach ($data as $key => $value) {
-            if($value['email'] === $email){
+        foreach ($this->registers as $key => $value) {
+            if($value['email'] === $email && $value['type'] === RegistrationType::$CUSTOMER){
                 return true;
             }
         }
 
         return false;
-    }
-
-    public function load() {
-        if (file_exists("data/transactions.txt")) {
-            $data = unserialize(file_get_contents("data/transactions.txt"));
-        }
-
-        if (!is_array($data)) {
-            return [];
-        }
-
-        return $data;
     }
 }

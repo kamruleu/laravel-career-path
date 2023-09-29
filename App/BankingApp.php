@@ -1,8 +1,13 @@
 <?php
 
+namespace App;
+use App\Controller\RegistrationController;
+use App\Controller\LoginController;
+use App\RegistrationType;
+
 class BankingApp {
-    private CustomerController $customerController;
-    private TransactionController $transactionController;
+    private RegistrationController $registrationController;
+    private LoginController $loginController;
     
     private const LOGIN = 1;
     private const REGISTER = 2;
@@ -14,8 +19,8 @@ class BankingApp {
 
     public function __construct()
     {
-        $this->customerController = new CustomerController();
-        $this->transactionController = new TransactionController();
+        $this->registrationController = new RegistrationController();
+        $this->loginController = new LoginController();
     }
 
     public function run(){
@@ -33,21 +38,16 @@ class BankingApp {
                 case self::LOGIN:
                     $email = trim(readline("Enter Email: "));
                     $password = trim(readline("Enter Password: "));
-                    $check = $this->customerController->customerLogin($email, $password);
-                    if($check){
-                        $this->transactionController->run($email);
-                    }else{
-                        printf("Sorry! Invalid credentials\n");
-                    }
+                    $this->loginController->login($email, $password);
                     break;
                 case self::REGISTER:
                     $name = trim(readline("Enter Name: "));
                     $email = trim(readline("Enter Email: "));
                     $password = trim(readline("Enter Password: "));
-                    $this->customerController->customerRegister($name, $email, $password);
+                    $this->registrationController->register($name, $email, $password, RegistrationType::$CUSTOMER);
                     break;
                 default:
-                    printf("Sorry! Invalid credentials\n");
+                    printf("\nSorry! Invalid credentials\n\n");
                     break;
             }
         }
