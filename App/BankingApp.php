@@ -38,16 +38,24 @@ class BankingApp {
                 case self::LOGIN:
                     $email = trim(readline("Enter Email: "));
                     $password = trim(readline("Enter Password: "));
+                    if(!$email || !$password){
+                        printf("\nPlease fill in all fields.\n\n");
+                        break;
+                    }
                     $this->loginController->login($email, $password);
                     break;
                 case self::REGISTER:
                     $name = trim(readline("Enter Name: "));
                     $email = trim(readline("Enter Email: "));
                     $password = trim(readline("Enter Password: "));
+                    if(!$name || !$email || !$password){
+                        printf("\nPlease fill in all fields.\n\n");
+                        break;
+                    }
                     $this->registrationController->register($name, $email, $password, RegistrationType::$CUSTOMER);
                     break;
                 default:
-                    printf("\nSorry! Invalid credentials\n\n");
+                    printf("\nSorry! Invalid option.\n\n");
                     break;
             }
         }

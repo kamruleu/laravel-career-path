@@ -16,6 +16,11 @@ class CreateAdmin {
         $email = trim(readline("Enter email: "));
         $password = trim(readline("Enter password: "));
 
+        if(!$name || !$email || !$password){
+            printf("\nPlease fill in all fields.\n\n");
+            return null;
+        }
+
         $this->registrationController->register($name, $email, $password, RegistrationType::$ADMIN);
     }
 }

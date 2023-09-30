@@ -39,7 +39,7 @@ class AdminTransaction {
 
             switch ($choice) {
                 case self::ALL_TRANSACRION:
-                    $this->viewTransaction();
+                    $this->viewAllTransaction();
                     break;
                 case self::INDIVIDUAL_TRANSACTION:
                     $toEmail = trim(readline("customer email: "));
@@ -70,18 +70,29 @@ class AdminTransaction {
         ];
         array_push($this->transactions, $newTransaction);
         printf("\nTransaction save successfully.\n\n");
-        file_put_contents("data/transactions.txt", serialize($this->transactions));
+        $this->storage->save(CustomerTransaction::getModelName(), $this->transactions);
     }
 
-    public function viewTransaction($email = "")
+    public function viewAllTransaction()
+    {
+        printf("---------------------------------\n");
+
+        printf("Email\tTransaction Type\tAmount\n");
+        foreach ($this->transactions as $key => $value) {
+            printf($value['email']."\t".$value['type']."\t\t".abs($value['amount'])."\n");
+        }
+
+        printf("---------------------------------\n\n");
+    }
+
+    public function viewTransaction($email)
     {
         printf("---------------------------------\n");
 
         printf("Transaction Type\tAmount\n");
+        
         foreach ($this->transactions as $key => $value) {
-            if($email && $value['email'] === $email){
-                printf($value['type']."\t\t".abs($value['amount'])."\n");
-            }else{
+            if($value['email'] === $email){
                 printf($value['type']."\t\t".abs($value['amount'])."\n");
             }
         }
@@ -96,8 +107,9 @@ class AdminTransaction {
         printf("SL\tEmail\n");
         $sl = 0;
         foreach ($this->registers as $key => $value) {
-            $sl++;
+            
             if($value['type'] === RegistrationType::$CUSTOMER){
+                $sl++;
                 printf($sl."\t".$value['email']."\n");
             }
         }

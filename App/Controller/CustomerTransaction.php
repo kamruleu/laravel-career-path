@@ -26,7 +26,7 @@ class CustomerTransaction implements Model {
     public function __construct() {
         $this->storage = new FileStorage();
         $this->transactions = $this->storage->load($this->getModelName());
-        $this->registers = $this->storage->load(CustomerTransaction::getModelName());
+        $this->registers = $this->storage->load(RegistrationController::getModelName());
     }
 
     public static function getModelName(): string
@@ -56,11 +56,12 @@ class CustomerTransaction implements Model {
                     $this->saveTransactions($amount, $this->options[$choice], $email);
                     break;
                 case self::WITHDRAW:
-                    $amount = "-".(float)trim(readline("Enter withdraw amount: "));
+                    $amount = (float)trim(readline("Enter withdraw amount: "));
                     if($amount <= 0){
                         printf("\nSorry! Amount would be greater than 0!\n\n");
                         break;
                     }
+                    $amount = "-".$amount;
                     $checkBalance = $this->checkBalance($amount, $email);
                     if(!$checkBalance){
                         printf("\nSorry! You don't have sufficient balance!\n\n");
@@ -111,7 +112,7 @@ class CustomerTransaction implements Model {
         ];
         array_push($this->transactions, $newTransaction);
         printf("\nTransaction save successfully.\n\n");
-        file_put_contents("data/transactions.txt", serialize($this->transactions));
+        $this->storage->save($this->getModelName(), $this->transactions);
     }
 
     public function viewTransaction($email)

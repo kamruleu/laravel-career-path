@@ -35,6 +35,6 @@ class LoginController
             }
         }
 
-        return null;
+        printf("\nSorry! Invalid credentials.\n\n");
     }
 }
