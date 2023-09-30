@@ -21,7 +21,7 @@ class LoginController
     }
 
     public function login($email, $password) {
-        var_dump($this->registers);
+        // var_dump($this->registers);
         foreach ($this->registers as $key=>$value) 
         {
             if ($value['email'] === $email && $value['password'] === $password && $value['type'] === RegistrationType::$CUSTOMER) 
