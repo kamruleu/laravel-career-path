@@ -2,14 +2,14 @@
 
 use App\web\Controllers\RegisterController;
 use App\web\Controllers\LoginController;
-$project_path = "/laravel-career-path";
 
 return [
     
-    $project_path."/" => [LoginController::class, "index"],
-    $project_path."/login" => [LoginController::class, "index"],
-    $project_path."/register" => [RegisterController::class, "index"],
-    $project_path."/register/customer" => [RegisterController::class, "create"]
+    "/" => [LoginController::class, "index"],
+    "/index" => [LoginController::class, "index"],
+    "/login" => [LoginController::class, "login"],
+    "/register" => [RegisterController::class, "index"],
+    "/register/create" => [RegisterController::class, "create"]
     
 ];
 

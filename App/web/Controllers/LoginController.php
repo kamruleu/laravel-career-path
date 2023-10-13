@@ -18,8 +18,7 @@ class LoginController
         return view("customer/login", ["allcustomer"=>$allCustomer->getAll()]);
     }
 
-    public function getAllCustomer(){
-        $all = new CustomerModel();
-        $all->getAll();
+    public function login(){
+        
     }
 }

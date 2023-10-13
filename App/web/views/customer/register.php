@@ -46,7 +46,7 @@
         <div class="px-6 py-12 bg-white shadow sm:rounded-lg sm:px-12">
           <form
             class="space-y-6"
-            action="./register/customer"
+            action="<?php echo URL; ?>/register/create"
             method="POST">
             <div>
               <label
@@ -111,7 +111,7 @@
         <p class="mt-10 text-sm text-center text-gray-500">
           Already a customer?
           <a
-            href="./login"
+            href="<?php echo URL; ?>/"
             class="font-semibold leading-6 text-emerald-600 hover:text-emerald-500"
             >Sign-in</a
           >
