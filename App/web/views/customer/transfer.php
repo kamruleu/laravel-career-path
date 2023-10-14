@@ -26,6 +26,7 @@
         <div class="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
           <div class="bg-white rounded-lg p-2">
             <!-- Current Balance Stat -->
+            <p class="text-center text-green-900"><strong><?php if(isset($message)){ echo $message; } ?></strong></p>
             <dl
               class="mx-auto grid grid-cols-1 gap-px sm:grid-cols-2 lg:grid-cols-4">
               <div
@@ -46,7 +47,7 @@
               <div class="px-4 py-5 sm:p-6">
                 <div class="mt-4 text-sm text-gray-500">
                   <form
-                    action="#"
+                    action="<?php echo URL; ?>/add_transfer"
                     method="POST">
                     <!-- Recipient's Email Input -->
                     <input

@@ -25,6 +25,7 @@
       <main class="-mt-32">
         <div class="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
           <div class="bg-white rounded-lg p-2">
+            <p class="text-center text-green-900"><strong><?php if(isset($message)){ echo $message; } ?></strong></p>
             <!-- Current Balance Stat -->
             <dl
               class="mx-auto grid grid-cols-1 gap-px sm:grid-cols-2 lg:grid-cols-4">
@@ -49,7 +50,7 @@
                 </h3>
                 <div class="mt-4 text-sm text-gray-500">
                   <form
-                    action="#"
+                    action="<?php echo URL; ?>/add_deposit"
                     method="POST">
                     <!-- Input Field -->
                     <div class="relative mt-2 rounded-md">

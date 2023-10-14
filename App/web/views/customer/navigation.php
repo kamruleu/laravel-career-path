@@ -9,13 +9,13 @@
             <!-- Current: "bg-emerald-700 text-white", Default: "text-white hover:bg-emerald-500 hover:bg-opacity-75" -->
             <a
                 href="<?php echo URL; ?>/dashboard/customer"
-                class="text-white hover:bg-emerald-500 hover:bg-opacity-75 rounded-md py-2 px-3 text-sm font-medium"
+                class="bg-emerald-700 text-white rounded-md py-2 px-3 text-sm font-medium"
                 aria-current="page"
                 >Dashboard</a
             >
             <a
                 href="<?php echo URL; ?>/deposit"
-                class="bg-emerald-700 text-white rounded-md py-2 px-3 text-sm font-medium"
+                class="text-white hover:bg-emerald-500 hover:bg-opacity-75 rounded-md py-2 px-3 text-sm font-medium"
                 >Deposit</a
             >
             <a
@@ -68,7 +68,7 @@
             aria-labelledby="user-menu-button"
             tabindex="-1">
             <a
-                href="#"
+                href="<?php echo URL; ?>/logout"
                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                 role="menuitem"
                 tabindex="-1"
@@ -195,7 +195,7 @@
         </div>
         <div class="mt-3 space-y-1 px-2">
         <a
-            href="#"
+            href="<?php echo URL; ?>/logout"
             class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-emerald-500 hover:bg-opacity-75"
             >Sign out</a
         >

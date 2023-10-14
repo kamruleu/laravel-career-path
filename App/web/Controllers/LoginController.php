@@ -27,11 +27,17 @@ class LoginController
             $_SESSION['id'] = $result[0]['id'];
             $_SESSION['name'] = $result[0]['name'];
             $_SESSION['email'] = $result[0]['email'];
+            $_SESSION['logged'] = true;
             // print_r($_SESSION);
         }else{
             return view("customer/login", ["message" => "Failed to login"]);
         }
 
         return redirect("dashboard/customer");
+    }
+
+    public function logout(){
+        session_destroy();
+        return view("customer/login");
     }
 }
