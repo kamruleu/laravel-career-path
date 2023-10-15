@@ -6,9 +6,12 @@ use App\web\Models\CustomerModel;
 
 class LoginController
 {
+    private CustomerModel $customerModel;
+    
     public function __construct()
     {
         @session_start();
+        $this->customerModel = new CustomerModel();
     }
 
     public function index(){
@@ -20,8 +23,8 @@ class LoginController
         $result = null;
         $message = null;
         $where = "email = '".$_POST['email']."' and password = '".$_POST['password']."'";
-        $customerModel = new CustomerModel();
-        $result = $customerModel->getCustomer($where);
+        
+        $result = $this->customerModel->getCustomer($where);
 
         if($result){
             $_SESSION['id'] = $result[0]['id'];

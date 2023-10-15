@@ -36,7 +36,7 @@
                 </dt>
                 <dd
                   class="w-full flex-none text-3xl font-medium leading-10 tracking-tight text-gray-900">
-                  $10,115,091.00
+                  $<?php if(isset($balance)){ echo number_format($balance[0]['balance'],2); }else{ echo "0.00"; }?>
                 </dd>
               </div>
             </dl>

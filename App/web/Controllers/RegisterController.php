@@ -6,9 +6,11 @@ use App\web\Models\CustomerModel;
 
 class RegisterController
 {
+    private CustomerModel $register;
+    
     public function __construct()
     {
-        
+        $this->register = new CustomerModel();
     }
 
     public function index()
@@ -23,8 +25,7 @@ class RegisterController
         $column = "name, email, password";
         $values = "('".$_POST['name']."','".$_POST['email']."','".$_POST['password']."')";
 
-        $model = new CustomerModel();
-        $result = $model->create($column, $values);
+        $result = $this->register->create($column, $values);
 
         if($result){
             $message = "Register successfully!";

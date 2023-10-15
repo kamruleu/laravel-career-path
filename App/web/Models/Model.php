@@ -38,6 +38,7 @@ class Model
 
     public function select($table, $fields="*", $where="1=1"){
         $sql = "SELECT $fields FROM $table WHERE $where";
+        // echo "SELECT $fields FROM $table WHERE $where";
         $stmt = $this->pdo->prepare($sql);
         try {
             if($stmt->execute()){

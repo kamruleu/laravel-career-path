@@ -8,4 +8,12 @@ class TransactionModel extends Model
         $query = $this->insert("transactions", $column, $values);
         return $query;
     }
+
+    public function current_balance($email){
+        // echo $email;
+        $column = "sum(amount*sign) as balance";
+        $where = "customer_email = '".$email."'";
+        $query = $this->select("transactions", $column, $where);
+        return $query;
+    }
 }
