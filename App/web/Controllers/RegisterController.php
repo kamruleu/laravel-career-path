@@ -35,4 +35,27 @@ class RegisterController
 
         return view("customer/register", ["message" => $message]);
     }
+
+    public function adminRegister()
+    {
+        return view("admin/register");
+    }
+
+    public function adminCreate(){
+        //print_r($_POST);
+        $result = null;
+        $message = null;
+        $column = "name, email, password";
+        $values = "('".$_POST['name']."','".$_POST['email']."','".$_POST['password']."')";
+
+        $result = $this->loginModel->createAdmin($column, $values);
+
+        if($result){
+            $message = "Register successfully!";
+        }else{
+            $message = "Failed to  register!";
+        }
+
+        return view("admin/register", ["message" => $message]);
+    }
 }

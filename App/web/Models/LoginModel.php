@@ -19,4 +19,9 @@ class LoginModel extends Model
         $query = $this->select("users", "*", $where);
         return $query;
     }
+
+    public function createAdmin($column, $values){
+        $query = $this->insert("users", $column, $values);
+        return $query;
+    }
 }

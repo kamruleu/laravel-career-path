@@ -24,6 +24,8 @@ return [
     //admin route
     "/admin" => [LoginController::class, "admin"],
     "/admin-login" => [LoginController::class, "adminLogin"],
+    "/admin-register" => [RegisterController::class, "adminRegister"],
+    "/admin-create" => [RegisterController::class, "adminCreate"],
     "/dashboard/admin" => [AdminDashboardController::class, "admin"],
     "/transactions" => [AdminDashboardController::class, "transactions"],
     "/admin-logout" => [LoginController::class, "adminLogout"],
