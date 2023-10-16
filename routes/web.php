@@ -1,5 +1,6 @@
 <?php
 
+use App\web\Controllers\AdminDashboardController;
 use App\web\Controllers\DashboardController;
 use App\web\Controllers\RegisterController;
 use App\web\Controllers\LoginController;
@@ -14,14 +15,18 @@ return [
     "/register" => [RegisterController::class, "index"],
     "/register/create" => [RegisterController::class, "create"],
     "/dashboard/customer" => [DashboardController::class, "customer"],
-    "/dashboard/customer" => [DashboardController::class, "customer"],
-    "/dashboard/customer" => [DashboardController::class, "customer"],
     "/deposit" => [TransactionController::class, "deposit"],
     "/add_deposit" => [TransactionController::class, "add_deposit"],
     "/withdraw" => [TransactionController::class, "withdraw"],
     "/add_withdraw" => [TransactionController::class, "add_withdraw"],
     "/transfer" => [TransactionController::class, "transfer"],
     "/add_transfer" => [TransactionController::class, "add_transfer"],
+    //admin route
+    "/admin" => [LoginController::class, "admin"],
+    "/admin-login" => [LoginController::class, "adminLogin"],
+    "/dashboard/admin" => [AdminDashboardController::class, "admin"],
+    "/transactions" => [AdminDashboardController::class, "transactions"],
+    "/admin-logout" => [LoginController::class, "adminLogout"],
     
 ];
 

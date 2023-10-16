@@ -4,7 +4,7 @@
   lang="en">
   <!-- Header -->
   <?php require_once __DIR__ . "/header.php"; ?>
-  <title>Sign-In To Your Account</title>
+  <title>Sign-In To Customer Account</title>
   </head>
   <!-- Header end -->
   <body class="h-full bg-slate-100">
@@ -12,7 +12,7 @@
       <div class="sm:mx-auto sm:w-full sm:max-w-md">
         <h2
           class="mt-6 text-2xl font-bold leading-9 tracking-tight text-center text-gray-900">
-          Sign In To Your Account
+          Sign In To Customer Account
         </h2>
         <p class="text-center text-red-900"><?php if(isset($message)){ echo $message; } ?></p>
       </div>
@@ -76,9 +76,15 @@
           >
         </p>
       </div>
-      <!-- <pre>
-        <?php print_r($allcustomer) ?>
-      </pre> -->
+      <div
+        class="flex flex-col gap-2 mb-8 lg:mb-16 lg:mt-10 md:flex-row md:justify-center">
+        <a
+          href="<?php echo URL; ?>/admin"
+          type="button"
+          class="text-white bg-sky-700 hover:bg-sky-800 focus:ring-4 focus:ring-sky-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2">
+          Login as Admin
+        </a>
+      </div>
     </div>
   </body>
 </html>

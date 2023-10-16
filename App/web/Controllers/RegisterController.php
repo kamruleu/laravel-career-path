@@ -2,15 +2,15 @@
 
 namespace App\web\Controllers;
 
-use App\web\Models\CustomerModel;
+use App\web\Models\LoginModel;
 
 class RegisterController
 {
-    private CustomerModel $register;
+    private LoginModel $loginModel;
     
     public function __construct()
     {
-        $this->register = new CustomerModel();
+        $this->loginModel = new LoginModel();
     }
 
     public function index()
@@ -25,7 +25,7 @@ class RegisterController
         $column = "name, email, password";
         $values = "('".$_POST['name']."','".$_POST['email']."','".$_POST['password']."')";
 
-        $result = $this->register->create($column, $values);
+        $result = $this->loginModel->create($column, $values);
 
         if($result){
             $message = "Register successfully!";

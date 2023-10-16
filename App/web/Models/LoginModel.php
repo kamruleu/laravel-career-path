@@ -2,7 +2,7 @@
 
 namespace App\web\Models;
 
-class CustomerModel extends Model
+class LoginModel extends Model
 {
 
     public function create($column, $values){
@@ -12,6 +12,11 @@ class CustomerModel extends Model
 
     public function getCustomer($where){
         $query = $this->select("customers", "*", $where);
+        return $query;
+    }
+
+    public function getUser($where){
+        $query = $this->select("users", "*", $where);
         return $query;
     }
 }
