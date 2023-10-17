@@ -2,10 +2,6 @@
 
 BanguBank is a simple banking application with features for both 'Admin' and 'Customer' users. It's a HTML template starter pack for Laravel Career Path by Interactive Cares students.
 
-![Admin View](screenshots/admin_preview.png)
-
-![Customer View](screenshots/customers_preview.png)
-
 ### Admin Features
 
 - See all transactions made by all users.
@@ -24,18 +20,36 @@ BanguBank is a simple banking application with features for both 'Admin' and 'Cu
 
 ## Installation
 
-Clone the repository to your local machine:
+Clone the repository to your local machine (branch 'bagubank'):
 
 ```bash
-git clone https://github.com/alnahian2003/bangubank.git
+git clone -b bangubank https://github.com/kamruleu/laravel-career-path.git
 ```
 
 ```bash
-cd bangubank
+cd laravel-career-path
 ```
 
-## Usage
+## Usage web app
 
-1. Copy-paste the pages and directories in your own php project
-2. No need to install tailwindcss and alpinejs, as the CDN is already included
-3. seperate each files and components based on your own development technique
+1. After clone the app and open index.php file and 
+2. Update project name `$project_name = "/laravel-career-path"` replace the 'laravel-career-path' to your 'project-name';
+3. Migration the project to use this command:
+
+```bash
+php migration.php
+```
+
+## Usage web app
+
+1. Open cli project run this command bellow:
+
+```bash
+php cli.php
+```
+
+2. To create admin run this command below:
+
+```bash
+php create-admin.php
+```
