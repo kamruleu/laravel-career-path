@@ -3,6 +3,7 @@
 namespace App\web\Controllers;
 
 use App\web\Models\TransactionModel;
+use Exception;
 
 class TransactionController
 {
@@ -26,15 +27,32 @@ class TransactionController
         // echo $_SESSION['name'];die;
         $result = null;
         $message = null;
-        $column = "customer_email, category_id, amount, sign, entry_time";
-        $values = "('".$_SESSION['email']."','1','".$_POST['amount']."','1','".date('Y-m-d H:i:s')."')";
+        try {
 
-        $result = $this->transaction->create($column, $values);
+            if(!$_SESSION['email']){
+                throw new Exception("Sorry! You deposit not allow!");
+            }
+
+            if(isset($_POST['amount']) && $_POST['amount'] <= 0){
+                throw new Exception("Sorry! Amount would be greater than 0!");
+            }
+
+            $column = "customer_email, category_id, amount, sign, entry_time";
+            $values = "('".$_SESSION['email']."','1','".$_POST['amount']."','1','".date('Y-m-d H:i:s')."')";
+
+            $result = $this->transaction->create($column, $values);
+
+            if(!$result){
+                throw new Exception("Sorry! Failed to deposit!");
+            }
+
+        } catch (Exception $e) {
+            $message = $e->getMessage();
+        }
+        
 
         if($result){
             $message = "Deposit successfully!";
-        }else{
-            $message = "Failed to  deposit!";
         }
 
         return view("customer/deposit", ["message" => $message, "balance"=> $this->currentBalance]);
@@ -47,15 +65,35 @@ class TransactionController
     public function add_withdraw() {
         $result = null;
         $message = null;
-        $column = "customer_email, category_id, amount, sign, entry_time";
-        $values = "('".$_SESSION['email']."','2','".$_POST['amount']."','-1','".date('Y-m-d H:i:s')."')";
+        try {
 
-        $result = $this->transaction->create($column, $values);
+            if(!$_SESSION['email']){
+                throw new Exception("Sorry! You withdraw not allow!");
+            }
+
+            if(isset($_POST['amount']) && $_POST['amount'] <= 0){
+                throw new Exception("Sorry! Amount would be greater than 0!");
+            }
+
+            if($this->currentBalance[0]['balance'] < $_POST['amount']){
+                throw new Exception("Sorry! You have not sufficient balance!");
+            }
+
+            $column = "customer_email, category_id, amount, sign, entry_time";
+            $values = "('".$_SESSION['email']."','2','".$_POST['amount']."','-1','".date('Y-m-d H:i:s')."')";
+
+            $result = $this->transaction->create($column, $values);
+
+            if(!$result){
+                throw new Exception("Sorry! Failed to withdraw!");
+            }
+
+        } catch (Exception $e) {
+            $message = $e->getMessage();
+        }
 
         if($result){
             $message = "Withdraw successfully!";
-        }else{
-            $message = "Failed to  withdraw!";
         }
 
         return view("customer/withdraw", ["message" => $message, "balance"=> $this->currentBalance]);
@@ -68,16 +106,47 @@ class TransactionController
     public function add_transfer() {
         $result = null;
         $message = null;
-        $column = "customer_email, category_id, amount, sign, entry_time";
-        $values = "('".$_SESSION['email']."','3','".$_POST['amount']."','-1','".date('Y-m-d H:i:s')."'), ('".$_POST['email']."','4','".$_POST['amount']."','1','".date('Y-m-d H:i:s')."')";
+        try {
 
-        $result = $this->transaction->create($column, $values);
+            if(!$_SESSION['email']){
+                throw new Exception("Sorry! You transfer not allow!");
+            }
+
+            if(isset($_POST['email']) && !$_POST['email']){
+                throw new Exception("Sorry! Enter email!");
+            }
+
+            if(isset($_POST['amount']) && $_POST['amount'] <= 0){
+                throw new Exception("Sorry! Amount would be greater than 0!");
+            }
+
+            if($this->currentBalance[0]['balance'] < $_POST['amount']){
+                throw new Exception("Sorry! You have not sufficient balance!");
+            }
+
+            $getValidEmail = $this->transaction->getValidEmail($_POST['email']);
+
+            if(count($getValidEmail) == 0){
+                throw new Exception("Sorry! Invalid email!");
+            }
+
+            $column = "customer_email, category_id, amount, sign, entry_time";
+            $values = "('".$_SESSION['email']."','3','".$_POST['amount']."','-1','".date('Y-m-d H:i:s')."'), ('".$_POST['email']."','4','".$_POST['amount']."','1','".date('Y-m-d H:i:s')."')";
+
+            $result = $this->transaction->create($column, $values);
+
+            if(!$result){
+                throw new Exception("Sorry! Failed to transfer!");
+            }
+
+        } catch (Exception $e) {
+            $message = $e->getMessage();
+        }
 
         if($result){
             $message = "Transfer successfully!";
-        }else{
-            $message = "Failed to  transfer!";
         }
+
         return view("customer/transfer", ["message" => $message, "balance"=> $this->currentBalance]);
     }
 }

@@ -24,9 +24,9 @@ class AdminDashboardController
         return view("admin/dashboard", ["customers" => $getCustomers]);
     }
 
-    public function transactions(){
+    public function transactions($email=""){
 
-        $getTransactions = $this->dashboardModel->getAllTransactions();
+        $getTransactions = $this->dashboardModel->getAllTransactions($email);
 
         return view("admin/transactions", ["transactions" => $getTransactions]);
     }

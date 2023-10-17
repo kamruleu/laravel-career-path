@@ -16,4 +16,12 @@ class TransactionModel extends Model
         $query = $this->select("transactions", $column, $where);
         return $query;
     }
+
+    public function getValidEmail($email){
+        // echo $email;
+        $column = "email";
+        $where = "email = '".$email."'";
+        $query = $this->select("customers", $column, $where);
+        return $query;
+    }
 }

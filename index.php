@@ -13,7 +13,12 @@ define("URL", $project_url);
 
 $request = str_replace($project_name, "", $_SERVER['REQUEST_URI']);
 
-$request = explode("?", $request)[0];
+$request_array = explode("?", $request);
+$request = $request_array[0];
+$request2 = "";
+if(count($request_array) > 1){
+    $request2 = $request_array[1];
+}
 
 if(isset($routes[$request])){
 
@@ -24,7 +29,7 @@ if(isset($routes[$request])){
 
     if($controller && $action){
         $newController = new $controller();
-        $newController->$action();
+        $newController->$action($request2);
     }else{
         echo "404 not found";
         exit;

@@ -27,7 +27,7 @@ class DashboardController
     }
 
     public function admin(){
-        echo "test";die;
+        // echo "test";die;
         //$getTransaction = $this->dashboard->getTransactions($_SESSION['email']);
 
         return view("admin/dashboard");

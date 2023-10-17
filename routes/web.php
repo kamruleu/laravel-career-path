@@ -1,6 +1,7 @@
 <?php
 
 use App\web\Controllers\AdminDashboardController;
+use App\web\Controllers\CustomerController;
 use App\web\Controllers\DashboardController;
 use App\web\Controllers\RegisterController;
 use App\web\Controllers\LoginController;
@@ -29,6 +30,8 @@ return [
     "/dashboard/admin" => [AdminDashboardController::class, "admin"],
     "/transactions" => [AdminDashboardController::class, "transactions"],
     "/admin-logout" => [LoginController::class, "adminLogout"],
+    "/add-customer" => [CustomerController::class, "index"],
+    "/create-customer" => [CustomerController::class, "create"],
     
 ];
 
