@@ -20,7 +20,7 @@ BanguBank is a simple banking application with features for both 'Admin' and 'Cu
 
 ## Installation
 
-Clone the repository to your local machine (branch 'bagubank'):
+Clone the repository to your local machine (branch `bagubank`):
 
 ```bash
 git clone -b bangubank https://github.com/kamruleu/laravel-career-path.git
@@ -32,23 +32,23 @@ cd laravel-career-path
 
 ## Usage web app
 
-1. After clone the app and open index.php file and 
-2. Update project name `$project_name = "/laravel-career-path"` replace the 'laravel-career-path' to your 'project-name';
-3. Migration the project to use this command:
+1. After clone the app and open `index.php` file.
+2. Update project name `$project_name = "/laravel-career-path"` replace the `laravel-career-path` to your `project-name`;
+3. Migration the project to use this command bellow:
 
 ```bash
 php migration.php
 ```
 
-## Usage web app
+## Usage CLI app
 
-1. Open cli project run this command bellow:
+1. Open cli project to use this command bellow:
 
 ```bash
 php cli.php
 ```
 
-2. To create admin run this command below:
+2. To create admin to use this command below:
 
 ```bash
 php create-admin.php
