@@ -34,7 +34,8 @@ cd laravel-career-path
 
 1. After clone the app and open `index.php` file.
 2. Update project name `$project_name = "/laravel-career-path"` replace the `laravel-career-path` to your `project-name`;
-3. Migration the project to use this command bellow:
+3. Open `config.php` file and update `host`, `dbname`, `user` and `password`.
+4. Migration the project to use this command bellow:
 
 ```bash
 php migration.php
