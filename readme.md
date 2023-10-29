@@ -23,10 +23,14 @@ Clone the repository to your local machine (branch `portfolio`):
 ```bash
 git clone -b portfolio https://github.com/kamruleu/laravel-career-path.git
 ```
+-- Enter repository path
 
 ```bash
 cd laravel-career-path
 ```
+
+-- Enter project path
+
 ```bash
 cd portfolio
 ```
@@ -34,6 +38,20 @@ cd portfolio
 ## Usage web app
 
 Run this application using command bellow:
+
+1. At first install composer
+
+```bash
+composer install
+```
+
+2. Laravel key generate
+
+```bash
+php artisan key:generate
+```
+
+3. Run application
 
 ```bash
 php artisan serve
