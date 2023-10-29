@@ -1,0 +1,50 @@
+[
+    {
+        "project_id":1,
+        "name":"Realstate Management",
+        "image":"assets/img/7_projects_blog-min-768x403.webp",
+        "short_desc":"Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi",
+        "long_desc":"Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.",
+        "features":["Property Listings and Organization", "Contact Management", "Lease and Contract Management", "Rent and Expense Tracking", "Tenant Portal", "Financial Management", "Document Management", "Reporting and Analytics", "Task Automation", "Property Inspection"]
+    },
+    {
+        "project_id":2,
+        "name":"School Management System",
+        "image":"assets/img/211014_Blog_Feature_Project_Environment-scaled.jpg",
+        "short_desc":"Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore",
+        "long_desc":"Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.",
+        "features":["Student Information Management", "Teacher and Staff Management", "Timetable and Scheduling", "Admissions and Registration", "Attendance Tracking", "Grading and Transcripts", "Communication Tools", "Library Management", "Finance and Fee Management"]
+    },
+    {
+        "project_id":3,
+        "name":"Human Resource Management",
+        "image":"assets/img/istockphoto-1298132193-612x612.jpg",
+        "short_desc":"Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia",
+        "long_desc":"Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.",
+        "features":["Employee Information Management", "Payroll and Compensation Management", "Time and Attendance Tracking", "Recruitment and Applicant Tracking", "Performance Evaluation and Appraisal", "Benefits Administration", "Training and Development", "Leave and Absence Management", "Compliance and HR Reporting", "Employee Self-Service Portal"]
+    },
+    {
+        "project_id":4,
+        "name":"Accounts Management System",
+        "image":"assets/img/phases-project-management-lifecycle-header.png",
+        "short_desc":"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis",
+        "long_desc":"Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.",
+        "features":["Chart of Accounts", "General Ledger", "Accounts Payable", "Accounts Receivable", "Budgeting and Forecasting", "Financial Reporting", "Bank Reconciliation", "Tax Management", "Expense Tracking", "Multi-Currency Support", "Audit Trail", "Security and User Access", "Integration with Payment Gateways", "Mobile Accessibility", "Data Backup and Recovery", "Vendor and Customer Management"]
+    },
+    {
+        "project_id":5,
+        "name":"Inventory Management System",
+        "image":"assets/img/hero-bg-2.jpg",
+        "short_desc":"Quis consequatur saepe eligendi voluptatem consequatur dolor consequuntur",
+        "long_desc":"Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.",
+        "features":["Inventory Tracking", "Real-time Stock Monitoring", "Product Categorization", "Barcode Scanning", "Reorder Alerts", "Stock Valuation", "Supplier Management", "Multi-location Support", "Sales and Purchase Order Management", "Reporting and Analytics", "User Access Control", "Integration with Point of Sale (POS) Systems", "Mobile Accessibility", "Data Backup and Security", "Customization and Integration"]
+    },
+    {
+        "project_id":6,
+        "name":"Enterprise Resource Planning (ERP)",
+        "image":"assets/img/istockphoto-1298132193-612x612.jpg",
+        "short_desc":"Modi nostrum vel laborum. Porro fugit error sit minus sapiente sit aspernatur",
+        "long_desc":"Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.",
+        "features":["Financial Management", "Human Resources Management", "Inventory and Supply Chain Management", "Customer Relationship Management (CRM)", "Production and Manufacturing Control", "Sales and Purchase Order Management", "Reporting and Analytics", "Business Intelligence", "Project Management", "Asset Management", "Multi-module Integration", "User Access Control", "Mobile Accessibility", "Data Security and Backup", "Customization and Integration", "Workflow Automation"]
+    }
+]

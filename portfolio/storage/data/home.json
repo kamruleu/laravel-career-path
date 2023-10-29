@@ -1,0 +1,64 @@
+{
+    "about":{
+            "name":"Muhammad Kamrul Islam",
+            "profession":"I'm a professional web application developer",
+            "short_description":"Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.",
+            "long_description":"Officiis eligendi itaque labore et dolorum mollitia officiis optio vero. Quisquam sunt adipisci omnis et ut. Nulla accusantium dolor incidunt officia tempore. Et eius omnis. Cupiditate ut dicta maxime officiis quidem quia. Sed et consectetur qui quia repellendus itaque neque. Aliquid amet quidem ut quaerat cupiditate. Ab et eum qui repellendus omnis culpa magni laudantium dolores.",
+            "email":"kamrulfci2014@gmail.com",
+            "mobile":"01679822086",
+            "present_address":"142, Wireless gate, Mohakhali, Dhaka.",
+            "parmanent_address":"Kalidoh, Feni sadar, Feni. Bangladesh.",
+            "image":"assets/img/about.jpg"
+    },
+    "education":[
+        {
+            "id":1,
+            "degree":"BSc in Computer Science & Engineering",
+            "year":"2018 - 2022",
+            "institite":"Eastern University, Dhaka.",
+            "description":"I have completed my BSc in CSE degree from Eastern University, Dhaka, which is one of the reputed universities in Bangladesh."
+        },
+        {
+            "id":2,
+            "degree":"Diploma in Computer Science & Technology",
+            "year":"2014 - 2018",
+            "institite":"Govt. Feni Computer Institute, Feni.",
+            "description":"I have completed my diploma degree from the Department of Computer Science and Technology (CST) at Feni Computer Institute, which is the first ICT-based technical institute in Bangladesh."
+        }
+    ],
+    "skills":{
+        "description":"Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.",
+        "category":[
+            {
+                "id":1,
+                "skill_type":"HTML",
+                "percent":"100"
+            },
+            {
+                "id":2,
+                "skill_type":"CSS",
+                "percent":"90"
+            },
+            {
+                "id":3,
+                "skill_type":"JAVASCRIPT",
+                "percent":"75"
+            },
+            {
+                "id":4,
+                "skill_type":"PHP",
+                "percent":"80"
+            },
+            {
+                "id":5,
+                "skill_type":"WORDPRESS/CMS",
+                "percent":"90"
+            },
+            {
+                "id":6,
+                "skill_type":"PHOTOSHOP",
+                "percent":"55"
+            }
+        ]
+    }
+}

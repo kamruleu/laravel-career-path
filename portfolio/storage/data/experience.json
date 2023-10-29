@@ -1,0 +1,50 @@
+[
+    {
+        "id":1,
+        "designation":"Senior Software Engineer",
+        "work_period":"2023 - Present",
+        "company":"Dot BD Solutions Limited, Gulshan, Dhaka.",
+        "work_list":[
+            {
+                "id":1,
+                "description":"Coding and Development: Junior software engineers are responsible for writing, testing, and maintaining code for software applications. They implement features and functionalities according to the project requirements."
+            },
+            {
+                "id":2,
+                "description":"Delegate tasks to the 7 members of the design team and provide counsel on all aspects of the project."
+            },
+            {
+                "id":3,
+                "description":"Supervise the assessment of all graphic materials in order to ensure quality and accuracy of the design"
+            },
+            {
+                "id":4,
+                "description":"Oversee the efficient use of production project budgets ranging from $2,000 - $25,000"
+            }
+        ]
+    },
+    {
+        "id":2,
+        "designation":"Software Engineer",
+        "work_period":"2021 - 2022",
+        "company":"Dot BD Solutions Limited, Gulshan, Dhaka.",
+        "work_list":[
+            {
+                "id":1,
+                "description":"Developed numerous marketing programs (logos, brochures,infographics, presentations, and advertisements)."
+            },
+            {
+                "id":2,
+                "description":"Managed up to 5 projects or tasks at a given time while under pressure"
+            },
+            {
+                "id":3,
+                "description":"Recommended and consulted with clients on the most appropriate graphic design"
+            },
+            {
+                "id":4,
+                "description":"Created 4+ design presentations and proposals a month for clients and account managers"
+            }
+        ]
+    }
+]
